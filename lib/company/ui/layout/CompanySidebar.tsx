@@ -1,39 +1,44 @@
 import { Box, Flex, HStack, Stack, Text } from "@chakra-ui/react";
+import { MenuItemType } from "@lib/admin/ui/layout/AdminSidebar";
 import NextLink from "next/link";
 import { ReactNode } from "react";
 
 import {
-  MdCarRental,
-  MdDashboard,
-  MdDirections,
-  MdFireTruck,
+  MdConfirmationNumber,
   MdLogoDev,
   MdLogout,
-  MdOutlineFireTruck,
-  MdSettings,
   MdSupervisedUserCircle,
-  MdWarehouse,
 } from "react-icons/md";
-import { MenuItemType } from "./AdminSidebar";
 
 const menuItems: (MenuItemType & { items?: MenuItemType[] })[] = [
   {
     label: "Users",
     items: [
       {
+        label: "Нүүр",
+        icon: <MdConfirmationNumber />,
+        href: "/company",
+      },
+      {
         label: "Бүх хэрэглэгч",
         icon: <MdSupervisedUserCircle />,
-        href: "/admin/users",
+        href: "/company/users",
       },
+
       {
         label: "Тээвэр",
         icon: <MdLogoDev />,
-        href: "/admin/message",
+        href: "/company/message",
+      },
+      {
+        label: "Үйлчилгээний нөхцөл",
+        icon: <MdLogoDev />,
+        href: "/company/message",
       },
       {
         label: "Гарах",
         icon: <MdLogout />,
-        href: "/admin/calendar",
+        href: "/auth/logout",
       },
     ],
   },
@@ -41,7 +46,7 @@ const menuItems: (MenuItemType & { items?: MenuItemType[] })[] = [
 
 export const CompanySidebar = () => {
   return (
-    <Flex h="full" minW={48} w={48} direction="column">
+    <Flex h="full" minW={{ base: 14, md: 48 }} w={{ base: 14, md: 48 }} direction="column">
       <Stack spacing="4" flex="1" overflow="auto" py="3" pr="2" w="full">
         {menuItems.map((item, i) =>
           item.items ? (
@@ -124,15 +129,22 @@ const AdminNavLinkItem = ({
         rounded="md"
         transition="all 0.2s"
         w="full"
+        justify={{ base: "center", md: "flex-start" }}
         _hover={{ bg: "teal.100", color: "teal.800" }}
       >
         <Text fontSize="lg">{icon}</Text>
-        <Text>{label}</Text>
+        <Text display={{ base: "none", md: "block" }}>{label}</Text>
       </HStack>
     </NextLink>
   ) : (
-    <HStack px="2" py="1" color="teal.900" w="full">
+    <HStack 
+      px="2" 
+      py="1" 
+      color="teal.900" 
+      w="full"
+      justify={{ base: "center", md: "flex-start" }}
+    >
       <Text fontSize="lg">{icon}</Text>
-      <Text>{label}</Text>
+      <Text display={{ base: "none", md: "block" }}>{label}</Text>
     </HStack>
   );

@@ -3,18 +3,18 @@ import { useAuth } from "@lib/auth/ui";
 import { UserRole } from "@prisma/client";
 import { AppLayout, Flex } from "@ui/index";
 import NotFoundPage from "pages/404";
-import { AdminSidebar } from "./AdminSidebar";
+import { CompanySidebar } from "./CompanySidebar";
 
-export const AdminLayout = ({ children }: { children: ReactNode }) => {
+export const CompanyLayout = ({ children }: { children: ReactNode }) => {
   const { user } = useAuth();
 
-  return user?.role !== UserRole.ADMIN ? (
+  return user?.role !== UserRole.ADMIN && user?.role !== UserRole.COMPANY ? (
     <NotFoundPage />
   ) : (
     <AppLayout>
       <Flex h="full" flexDirection="column">
         <Flex flex="1" fontSize="sm" py="4" gap={4}>
-          <AdminSidebar />
+          <CompanySidebar />
           <Flex
             p="4"
             width="full"

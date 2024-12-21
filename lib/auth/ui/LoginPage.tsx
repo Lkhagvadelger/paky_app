@@ -9,8 +9,6 @@ import {
   Heading,
   HStack,
   Icon,
-  IconButton,
-  Image,
   Input,
   InputGroup,
   InputLeftElement,
@@ -126,15 +124,17 @@ export const LoginPage = () => {
             lineHeight={"1"}
             fontSize="sm"
           >
-            KGO системийг ашиглах байгууллагуудад зориулсан эрхийн бүртгэл
+            Paky системийг ашиглах байгууллагуудад зориулсан эрхийн бүртгэл
           </Text>
           <FormControl id="email" isInvalid={!!errors.phoneNumber}>
             <InputGroup>
-              <InputLeftElement pl={"3"}>
-                <Text>+976</Text>
+              <InputLeftElement pl={"12"}>
+                <Icon as={MdPhone} />
+                <Text pl="2">+976</Text>
               </InputLeftElement>
               <Input
-                pl={"12"}
+                maxLength={8}
+                pl={"20"}
                 w="full"
                 fontSize="md"
                 border="1px"

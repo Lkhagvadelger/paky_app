@@ -17,27 +17,27 @@ export const emailTemplates = (lang: string, type: EmailType, data: {}) => {
       type: EmailType.PasswordReset,
       email: {
         en: {
-          subject: `Web KGO App password reset request PIN code`,
+          subject: `Web Paky App password reset request PIN code`,
           body: `<p>Hello,</p>
           <p>Please input {pin} as password reset PIN code.</p>
           <p>Please contact us if you have any questions.</p>
-          <p>Web KGO App</p>
+          <p>Web Paky App</p>
           <p>support@KGO.app.com</p>`,
         },
         mn: {
-          subject: `Web KGO App нууц үг шинэчлэх хүсэлтийн PIN код`,
+          subject: `Web Paky App нууц үг шинэчлэх хүсэлтийн PIN код`,
           body: `<p>Сайн байна уу,</p>
           <p>Нууц үг солих дэлгэцэнд {pin} кодыг оруулна уу.</p>
           <p>Танд асууж лавлах зүйл байвал бидэнтэй холбогдоорой.</p>
-          <p>Web KGO App</p>
+          <p>Web Paky App</p>
           <p>support@kgo.app.com</p>`,
         },
         es: {
-          subject: `Solicitud de restablecimiento de contraseña de Web Kgo App Código PIN`,
+          subject: `Solicitud de restablecimiento de contraseña de Web Paky App Código PIN`,
           body: `<p>Hola,</p>
           <p>Ingrese {pin} como código PIN para restablecer la contraseña.</p>
           <p>Por favor, póngase en contacto con nosotros si tiene alguna pregunta.</p>
-          <p>Web Kgo App</p>
+          <p>Web Paky App</p>
           <p>support@Kgo.app.com</p>`,
         },
       },
