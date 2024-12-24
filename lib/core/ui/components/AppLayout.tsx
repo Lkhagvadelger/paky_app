@@ -25,10 +25,13 @@ export const AppLayout = ({
   }, [user]);
 
   return (
-    <>
-      <Box as="main" display="flex" px="6" backgroundColor={"#f4f6fa"}>
-        <Box w="full">{children}</Box>
-      </Box>
-    </>
+    <Box
+      as="main"
+      display="flex"
+      px={{ base: "1", md: "6" }}
+      backgroundColor={"#f4f6fa"}
+    >
+      <Box w="full">{children}</Box>
+    </Box>
   );
 };

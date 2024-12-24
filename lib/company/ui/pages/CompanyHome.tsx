@@ -30,14 +30,9 @@ import { PaymentPlan } from "./PaymentPlan";
 export const CompanyHome = () => {
   const { user } = useAuth();
   const { isOpen, onToggle, onClose } = useDisclosure();
-  const {
-    isOpen: isOpenPayment,
-    onToggle: onTogglePayment,
-    onClose: onClosePayment,
-  } = useDisclosure();
 
   return (
-    <Box w="full" p={2}>
+    <Box w="full">
       <VStack spacing={2} align="stretch">
         <Card p={4} bg="#fff" borderRadius="lg">
           <Heading size="lg" mb={2}>

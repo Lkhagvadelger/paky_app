@@ -21,7 +21,7 @@ export const CompanyContract = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
 
   return (
-    <Box w="full" p={2}>
+    <Box w="full">
       <VStack spacing={2} align="stretch">
         <Card p={4} bg="#fff" borderRadius="lg">
           <Heading size="lg" mb={2}>
