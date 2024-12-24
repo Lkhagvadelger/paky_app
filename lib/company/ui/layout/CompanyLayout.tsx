@@ -13,7 +13,7 @@ export const CompanyLayout = ({ children }: { children: ReactNode }) => {
   ) : (
     <AppLayout>
       <Flex h="full" flexDirection="column">
-        <Flex flex="1" fontSize="sm" py="4" gap={4}>
+        <Flex flex="1" fontSize="sm" py="4">
           <CompanySidebar />
           <Flex
             p="4"

@@ -15,7 +15,7 @@ model User {
   passwordDigest      String?
   phoneNumber         String           @unique
   phoneNumberVerified DateTime?
-  role                UserRole         @default(DRIVER)
+  role                UserRole         @default(COMPANY)
   createdAt           DateTime         @default(now())
   updatedAt           DateTime         @updatedAt
   pin                 String?
@@ -24,8 +24,6 @@ model User {
   pinVerifiedAt       DateTime?
   profile             Profile?
   tags                String[]         @default([])
-  vehicle             Vehicle[]
-  transportation      Transportation[]
 }
 
 model Tags {
@@ -89,7 +87,6 @@ model FileUpload {
 
 enum UserRole {
   ADMIN
-  DRIVER
   COMPANY
 }
 
@@ -108,92 +105,4 @@ model FirebaseToken {
   token     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-}
-
-model Vehicle {
-  id             String           @id @default(cuid())
-  plateNumber    String           @unique
-  cabinNumber    String?
-  countryName    String?
-  markName       String?
-  modelName      String?
-  buildYear      Int?
-  colorName      String?
-  type           String?
-  ownerType      String?
-  intent         String?
-  className      String?
-  motorNumber    String?
-  importDate     String?
-  fuelType       String?
-  manCount       Int?
-  axleCount      Int?
-  capacity       Float?
-  mass           Float?
-  weight         Float?
-  length         Float?
-  width          Float?
-  height         Float?
-  transmission   String?
-  wheelPosition  String?
-  rfid           String?
-  description    String?
-  driverId       String?
-  driver         User?            @relation(fields: [driverId], references: [id])
-  createdAt      DateTime         @default(now())
-  updatedAt      DateTime         @updatedAt
-  Transportation Transportation[]
-}
-
-model TransportLocation {
-  id                     String               @id @default(cuid())
-  shortName              String
-  description            String?
-  createdAt              DateTime             @default(now())
-  updatedAt              DateTime             @updatedAt
-  startingTransportation TransportDirection[] @relation("StartingTransportation")
-  endingTransportation   TransportDirection[] @relation("EndingTransportation")
-}
-
-model TransportDirection {
-  id                 String            @id @default(cuid())
-  shortName          String
-  totalDistance      Int?
-  totalTime          Int?
-  startingLocationId String
-  endingLocationId   String
-  costPerKm          Decimal           @default(0) @db.Decimal(18, 2)
-  costPerKmData      Json[]            @default([]) //[{date: "2024-01-01", cost: 1000}]
-  startingLocation   TransportLocation @relation(fields: [startingLocationId], references: [id], onDelete: Cascade, name: "StartingTransportation")
-  endingLocation     TransportLocation @relation(fields: [endingLocationId], references: [id], onDelete: Cascade, name: "EndingTransportation")
-  createdAt          DateTime          @default(now())
-  updatedAt          DateTime          @updatedAt
-  transportation     Transportation[]
-}
-
-model Transportation {
-  id                    String                 @id @default(cuid())
-  date                  String
-  documentDate          String
-  vehicleId             String
-  vehicle               Vehicle                @relation(fields: [vehicleId], references: [id])
-  driverId              String
-  driver                User                   @relation(fields: [driverId], references: [id])
-  transportDirectionId  String
-  transportDirection    TransportDirection     @relation(fields: [transportDirectionId], references: [id])
-  initialWeightTemp     Decimal                @default(0) @db.Decimal(18, 2)
-  documentWeightTemp    Decimal                @default(0) @db.Decimal(18, 2)
-  weightTon             Decimal                @default(0) @db.Decimal(18, 2)
-  total                 Decimal                @default(0) @db.Decimal(18, 2)
-  createdAt             DateTime               @default(now())
-  updatedAt             DateTime               @updatedAt
-  transportationExpense TransportationExpense?
-}
-
-model TransportationExpense {
-  id               String         @id @default(cuid())
-  transportationId String         @unique
-  transportation   Transportation @relation(fields: [transportationId], references: [id])
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime       @updatedAt
 }

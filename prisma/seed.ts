@@ -8,21 +8,15 @@ async function addUsers() {
   const users = [
     {
       email: "example1@gmail.com",
-      phoneNumber: "99887766",
+      phoneNumber: "88109008",
       password: "password",
       role: "ADMIN",
     },
     {
       email: "example2@gmail.com",
-      phoneNumber: "99887799",
+      phoneNumber: "86809078",
       password: "password",
-      role: "ADMIN",
-    },
-    {
-      email: "example3@gmail.com",
-      phoneNumber: "99887788",
-      password: "password",
-      role: "ADMIN",
+      role: "COMPANY",
     },
   ];
   for (const user of users) {

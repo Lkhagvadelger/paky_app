@@ -52,7 +52,7 @@ export const AuthFormAdminInvite = ({
     firstName: "",
     lastName: "",
     phoneNumber: "",
-    role: role || UserRole.DRIVER,
+    role: role || UserRole.COMPANY,
   };
   if (process.env.NODE_ENV !== "production") {
     defaultValues.code = faker.word.noun(8);

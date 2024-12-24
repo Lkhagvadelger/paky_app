@@ -60,6 +60,10 @@ export const LoginPage = () => {
   };
   watch("showPin");
   const doLogin = () => {
+    if (getValues("phoneNumber").length != 8)
+      return setError("phoneNumber", {
+        message: "Утасны дугаар буруу байна",
+      });
     const body = {
       username: getValues("phoneNumber").toLowerCase(),
       method: "phone",
@@ -69,11 +73,16 @@ export const LoginPage = () => {
     if (getValues("showPin") !== true) {
       requestCodeMutation.mutate(body, {
         onError: (error: any) => {
-          setError("phoneNumber", { message: error.translationKey });
+          setError("phoneNumber", {
+            message: "Бүртгэлгүй эсвэл буруу утасны дугаар байна",
+          });
         },
         onSuccess: (data: any) => {
           if (data.success == true) {
             setValue("showPin", true);
+            setError("phoneNumber", {
+              message: "",
+            });
             toaster.success(
               "Таны утсанд очсон баталгаажуулах кодыг оруулна уу"
             );
@@ -102,9 +111,9 @@ export const LoginPage = () => {
               pathname: `/admin`,
               query: "",
             });
-          if (data.role == UserRole.ADMIN)
+          if (data.role == UserRole.COMPANY)
             router.push({
-              pathname: `/admin`,
+              pathname: `/company`,
               query: "",
             });
         },
@@ -159,6 +168,9 @@ export const LoginPage = () => {
                 })}
               />
             </InputGroup>
+            <FormErrorMessage>
+              {errors.phoneNumber && errors.phoneNumber.message}
+            </FormErrorMessage>
           </FormControl>
           {getValues("showPin") && (
             <FormControl id="pin" pt={4} isInvalid={!!errors.pin}>

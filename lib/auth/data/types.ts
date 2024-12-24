@@ -5,6 +5,6 @@ export const getRootUrl = (
 ): string => {
   if (!user || !user.role) return "";
   if (user.role === UserRole.ADMIN) return "/admin";
-  if (user.role === UserRole.NURSE) return "/admin";
+  if (user.role === UserRole.COMPANY) return "/company";
   return "";
 };

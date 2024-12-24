@@ -16,6 +16,7 @@ export const colors = {
     800: "#33396C",
     900: "#2A2E58",
   },
+  pakyBlue: "#172d41",
   whiteAlpha: {
     50: "rgba(245, 247, 255, 0.04)",
     100: "rgba(245, 247, 255, 0.06)",

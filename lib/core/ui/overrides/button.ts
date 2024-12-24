@@ -112,88 +112,18 @@ const variants = {
     borderColor: "gray.900",
     fontWeight: "500",
   },
-  control: {
-    bg: "green.500",
-    _hover: {
-      bg: "green.300",
-    },
-    size: "md",
-    borderColor: "green.500",
+  pakyBlue: {
     color: "white",
-  },
-  info: {
-    size: "md",
-    borderRadius: "20px",
-    bg: "gray.850",
+    bg: "pakyBlue",
     _hover: {
-      bg: "gray.850",
-    },
-    color: "gray.400",
-    fontWeight: "400",
-    px: 3,
-  },
-  add: {
-    height: "31px",
-    fontSize: "14px",
-    px: 2,
-    bg: "main.500",
-    color: "white",
-    _hover: {
-      bg: "main.300",
-    },
-  },
-  greentransparent: {
-    bg: "green.10",
-    borderRadius: "20px",
-    border: "1px",
-    color: "green.600",
-    fontSize: "12px",
-    lineHeight: "15px",
-    borderColor: "green.50",
-  },
-  rounded: {
-    size: "md",
-    borderRadius: "32px",
-    bg: "green.500",
-    border: "1px",
-    borderColor: "green.600",
-    color: "white",
-    h: "46px",
-    fontWeight: 900,
-    px: 5,
-    py: 3,
-  },
-  bigrounded: {
-    size: "md",
-    backgroundColor: "green.500",
-    border: "2px",
-    borderColor: "green.600",
-    borderRadius: "32px",
-    fontSize: "xl",
-    fontWeight: "black",
-    color: "white",
-    h: "46px",
-    px: 5,
-    py: 3,
-  },
-  remove: {
-    height: "31px",
-    px: 2,
-    borderLeftRadius: 0,
-    bg: "red.500",
-    size: "sm",
-    _light: {
-      color: "white",
-    },
-    _hover: {
-      bg: "red.300",
+      bg: "pakyBlue",
     },
   },
 };
 
 const defaultProps = {
   size: "md",
-  variant: "solid",
+  variant: "dark",
 };
 
 const Button = {
